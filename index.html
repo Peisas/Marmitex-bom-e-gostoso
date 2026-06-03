@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Marmitex Bom Barato e Gostoso</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -13,7 +16,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Poppins,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
@@ -23,52 +26,95 @@ color:#fff;
 
 header{
 background:linear-gradient(90deg,#000,#b30000,#ffcc00);
-padding:30px 20px;
+padding:25px;
 text-align:center;
+box-shadow:0 5px 20px rgba(0,0,0,.4);
 }
 
 .logo{
 width:120px;
 height:120px;
 border-radius:50%;
-border:4px solid #fff;
 object-fit:cover;
 background:#fff;
+border:4px solid #fff;
 }
 
-h1{
+header h1{
 margin-top:15px;
 font-size:2rem;
 }
 
-.sub{
-margin-top:5px;
-opacity:.8;
+header p{
+opacity:.9;
 }
 
-.menu{
+.topBtns{
+margin-top:20px;
 display:flex;
 justify-content:center;
 gap:10px;
 flex-wrap:wrap;
-margin-top:25px;
 }
 
-.menu a{
+.topBtns a{
+padding:12px 20px;
 background:#fff;
 color:#111;
-padding:12px 20px;
-border-radius:30px;
 text-decoration:none;
-font-weight:700;
-transition:.3s;
+border-radius:30px;
+font-weight:bold;
 }
 
-.menu a:hover{
-transform:scale(1.05);
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
 }
 
-#carrinhoBtn{
+.box{
+background:#1d1d1d;
+padding:20px;
+border-radius:20px;
+margin-bottom:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
+
+.box h2{
+margin-bottom:15px;
+color:#ffcc00;
+}
+
+select{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+label{
+display:block;
+padding:6px 0;
+cursor:pointer;
+}
+
+button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+background:#ffcc00;
+font-weight:bold;
+cursor:pointer;
+margin-top:15px;
+}
+
+button:hover{
+opacity:.9;
+}
+
+#cartFloat{
 position:fixed;
 right:20px;
 bottom:20px;
@@ -76,99 +122,49 @@ background:#25D366;
 padding:15px 20px;
 border-radius:50px;
 font-weight:bold;
-cursor:pointer;
+box-shadow:0 10px 20px rgba(0,0,0,.3);
 z-index:999;
 }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:30px 15px;
-}
-
-.titulo{
-font-size:2rem;
-text-align:center;
-margin-bottom:25px;
-color:#ffcc00;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.card{
-background:#1d1d1d;
-border-radius:18px;
-padding:20px;
-box-shadow:0 10px 20px rgba(0,0,0,.3);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
-}
-
-.card h3{
-margin-bottom:10px;
-}
-
-.preco{
-font-size:1.5rem;
-color:#ffcc00;
-font-weight:700;
-margin:10px 0;
-}
-
-button{
-width:100%;
-padding:12px;
-border:none;
-border-radius:10px;
-background:#ffcc00;
-font-weight:bold;
-cursor:pointer;
-}
-
-button:hover{
-opacity:.9;
-}
-
-#painel{
-background:#1b1b1b;
-padding:20px;
-margin-top:40px;
-border-radius:20px;
-}
-
-#lista{
+#listaCarrinho{
 margin-top:15px;
 }
 
-.item{
+.itemCarrinho{
 display:flex;
 justify-content:space-between;
-margin:8px 0;
+align-items:center;
+padding:10px 0;
+border-bottom:1px solid #333;
+}
+
+.removeBtn{
+background:#c62828;
+padding:6px 10px;
+border:none;
+border-radius:8px;
+color:#fff;
+cursor:pointer;
+width:auto;
+margin-left:10px;
 }
 
 .total{
-font-size:1.4rem;
+margin-top:20px;
+font-size:1.5rem;
 font-weight:700;
-margin-top:15px;
 color:#ffcc00;
 }
 
 .finalizar{
 display:block;
 margin-top:20px;
-text-align:center;
-background:#25D366;
 padding:15px;
-border-radius:12px;
-text-decoration:none;
+background:#25D366;
 color:#fff;
+text-align:center;
+text-decoration:none;
+border-radius:12px;
 font-weight:bold;
 }
 
@@ -184,21 +180,15 @@ font-weight:bold;
 
 <h1>Marmitex Bom Barato e Gostoso</h1>
 
-<p class="sub">
-Monte seu pedido online
-</p>
+<p>Monte sua marmita do seu jeito.</p>
 
-<div class="menu">
+<div class="topBtns">
 
-<a href="#cardapio">
+<a href="#pedido">
 🍽 Cardápio
 </a>
 
-<a href="https://instagram.com/" target="_blank">
-📸 Instagram
-</a>
-
-<a href="https://wa.me/5584994730073" target="_blank">
+<a href="https://wa.me/5584994730073">
 📲 WhatsApp
 </a>
 
@@ -206,158 +196,461 @@ Monte seu pedido online
 
 </header>
 
-<div id="carrinhoBtn">
+<div id="cartFloat">
 🛒 <span id="contador">0</span>
 </div>
 
-<section class="container" id="cardapio">
+<div class="container">
 
-<h2 class="titulo">
-Escolha sua Marmita
+<div class="box" id="pedido">
+
+<h2>Escolha sua Marmita</h2>
+
+<select id="tipoMarmita">
+
+<option value="10|1">
+1 Proteína - R$ 10,00
+</option>
+
+<option value="15|2">
+2 Proteínas - R$ 15,00
+</option>
+
+<option value="20|3">
+3 Proteínas - R$ 20,00
+</option>
+
+</select>
+
+<h2>Proteínas</h2>
+
+<label>
+<input type="checkbox" class="proteina" value="Frango à Milanesa">
+Frango à Milanesa
+</label>
+
+<label>
+<input type="checkbox" class="proteina" value="Tirinhas de Frango Acebolada">
+Tirinhas de Frango Acebolada
+</label>
+
+<label>
+<input type="checkbox" class="proteina" value="Frango Parmegiana">
+Frango Parmegiana
+</label>
+
+<label>
+<input type="checkbox" class="proteina" value="Carne Guisada">
+Carne Guisada
+</label>
+
+<label>
+<input type="checkbox" class="proteina" value="Isca de Frango Crocante">
+Isca de Frango Crocante
+</label>
+
+<label>
+<input type="checkbox" class="proteina" value="Frango Frito">
+Frango Frito
+</label>
+
+<h2 style="margin-top:20px;">
+Acompanhamentos
 </h2>
 
-<div class="grid">
+<label>
+<input type="checkbox" class="acomp" value="Arroz Refogado">
+Arroz Refogado
+</label>
 
-<div class="card">
-<h3>Marmita 1 Proteína</h3>
-<div class="preco">R$ 10,00</div>
-<button onclick="addItem('Marmita 1 Proteína',10)">
-Adicionar ao Carrinho
+<label>
+<input type="checkbox" class="acomp" value="Feijão Carioca">
+Feijão Carioca
+</label>
+
+<label>
+<input type="checkbox" class="acomp" value="Macarrão">
+Macarrão
+</label>
+
+<label>
+<input type="checkbox" class="acomp" value="Salada Crua">
+Salada Crua
+</label>
+
+<label>
+<input type="checkbox" class="acomp" value="Farofa">
+Farofa
+</label>
+<h2 style="margin-top:20px;">
+Adicionais
+</h2>
+
+<label>
+<input type="checkbox" id="batata">
+Batata Frita (+ R$ 5,00)
+</label>
+
+<label>
+<input type="checkbox" id="cocalata">
+Coca-Cola Lata (+ R$ 6,00)
+</label>
+
+<label>
+<input type="checkbox" id="guarana">
+Guaraná 1L (+ R$ 9,00)
+</label>
+
+<h2 style="margin-top:20px;">
+Parmegiana
+</h2>
+
+<label>
+<input type="radio" name="parmegiana" value="0" checked>
+Nenhuma
+</label>
+
+<label>
+<input type="radio" name="parmegiana" value="20">
+1 Pessoa (+ R$ 20,00)
+</label>
+
+<label>
+<input type="radio" name="parmegiana" value="30">
+2 Pessoas (+ R$ 30,00)
+</label>
+
+<button onclick="adicionarCarrinho()">
+🛒 Adicionar ao Carrinho
 </button>
-</div>
-
-<div class="card">
-<h3>Marmita 2 Proteínas</h3>
-<div class="preco">R$ 15,00</div>
-<button onclick="addItem('Marmita 2 Proteínas',15)">
-Adicionar ao Carrinho
-</button>
-</div>
-
-<div class="card">
-<h3>Marmita 3 Proteínas</h3>
-<div class="preco">R$ 20,00</div>
-<button onclick="addItem('Marmita 3 Proteínas',20)">
-Adicionar ao Carrinho
-</button>
-</div>
-
-<div class="card">
-<h3>Batata Frita</h3>
-<div class="preco">R$ 5,00</div>
-<button onclick="addItem('Batata Frita',5)">
-Adicionar ao Carrinho
-</button>
-</div>
-
-<div class="card">
-<h3>Refrigerante Lata</h3>
-<div class="preco">R$ 6,00</div>
-<button onclick="addItem('Refrigerante Lata',6)">
-Adicionar ao Carrinho
-</button>
-</div>
-
-<div class="card">
-<h3>Refrigerante 1 Litro</h3>
-<div class="preco">R$ 9,00</div>
-<button onclick="addItem('Refrigerante 1 Litro',9)">
-Adicionar ao Carrinho
-</button>
-</div>
-
-<div class="card">
-<h3>Parmegiana 1 Pessoa</h3>
-<div class="preco">R$ 20,00</div>
-<button onclick="addItem('Parmegiana 1 Pessoa',20)">
-Adicionar ao Carrinho
-</button>
-</div>
-
-<div class="card">
-<h3>Parmegiana 2 Pessoas</h3>
-<div class="preco">R$ 30,00</div>
-<button onclick="addItem('Parmegiana 2 Pessoas',30)">
-Adicionar ao Carrinho
-</button>
-</div>
 
 </div>
 
-<div id="painel">
+<div class="box">
 
-<h2>🛒 Meu Carrinho</h2>
+<h2>
+🛒 Meu Carrinho
+</h2>
 
-<div id="lista"></div>
+<div id="listaCarrinho">
+
+<p style="opacity:.7;">
+Nenhum item adicionado.
+</p>
+
+</div>
 
 <div class="total">
-Total: R$ <span id="total">0.00</span>
+Total: R$ <span id="valorTotal">0.00</span>
 </div>
 
-<a href="#" class="finalizar" onclick="finalizar()">
+<a href="#" class="finalizar" onclick="finalizarPedido()">
 Finalizar Pedido
 </a>
 
 </div>
 
-</section>
-
+</div>
 <script>
 
-let carrinho=[];
-let total=0;
+let carrinho = [];
+let total = 0;
 
-function addItem(nome,preco){
+const proteinas = document.querySelectorAll(".proteina");
 
-carrinho.push({nome,preco});
+proteinas.forEach(item => {
 
-total+=preco;
+item.addEventListener("change", function(){
 
-document.getElementById("contador").innerHTML=carrinho.length;
+let limite = parseInt(
+document.getElementById("tipoMarmita")
+.value
+.split("|")[1]
+);
 
-render();
+let marcadas =
+document.querySelectorAll(".proteina:checked");
+
+if(marcadas.length > limite){
+
+this.checked = false;
+
+alert(
+"Você só pode escolher "
++ limite +
+" proteína(s)."
+);
 
 }
 
-function render(){
+});
 
-let lista=document.getElementById("lista");
+});
 
-lista.innerHTML="";
+function adicionarCarrinho(){
 
-carrinho.forEach(item=>{
+let dados =
+document.getElementById("tipoMarmita")
+.value.split("|");
 
-lista.innerHTML+=`
-<div class="item">
-<span>${item.nome}</span>
-<span>R$ ${item.preco.toFixed(2)}</span>
+let preco =
+parseFloat(dados[0]);
+
+let nomeMarmita =
+dados[1] + " Proteína(s)";
+
+let prots = [];
+
+document
+.querySelectorAll(".proteina:checked")
+.forEach(x=>{
+prots.push(x.value);
+});
+
+if(prots.length != parseInt(dados[1])){
+
+alert(
+"Escolha exatamente "
++ dados[1] +
+" proteína(s)."
+);
+
+return;
+
+}
+
+let acomp = [];
+
+document
+.querySelectorAll(".acomp:checked")
+.forEach(x=>{
+acomp.push(x.value);
+});
+
+let descricao =
+"Marmita " +
+nomeMarmita +
+"<br><small>Proteínas: "
++ prots.join(", ")
++ "<br>Acompanhamentos: "
++ acomp.join(", ")
++ "</small>";
+
+let valor = preco;
+
+if(document
+.getElementById("batata")
+.checked){
+
+descricao +=
+"<br><small>+ Batata Frita</small>";
+
+valor += 5;
+
+}
+
+if(document
+.getElementById("cocalata")
+.checked){
+
+descricao +=
+"<br><small>+ Coca-Cola Lata</small>";
+
+valor += 6;
+
+}
+
+if(document
+.getElementById("guarana")
+.checked){
+
+descricao +=
+"<br><small>+ Guaraná 1L</small>";
+
+valor += 9;
+
+}
+
+let parm =
+document.querySelector(
+'input[name="parmegiana"]:checked'
+).value;
+
+if(parm > 0){
+
+descricao +=
+"<br><small>+ Parmegiana</small>";
+
+valor += parseFloat(parm);
+
+}
+
+carrinho.push({
+
+descricao:descricao,
+valor:valor
+
+});
+
+total += valor;
+
+renderizar();
+
+limparFormulario();
+
+}
+
+function limparFormulario(){
+
+document
+.querySelectorAll("input[type=checkbox]")
+.forEach(x=>x.checked=false);
+
+document
+.querySelector(
+'input[name="parmegiana"][value="0"]'
+).checked=true;
+
+}
+
+function removerItem(i){
+
+total -= carrinho[i].valor;
+
+carrinho.splice(i,1);
+
+renderizar();
+
+}
+
+function renderizar(){
+
+let lista =
+document.getElementById(
+"listaCarrinho"
+);
+
+lista.innerHTML = "";
+
+if(carrinho.length==0){
+
+lista.innerHTML =
+"<p style='opacity:.7;'>Nenhum item adicionado.</p>";
+
+}
+
+carrinho.forEach((item,index)=>{
+
+lista.innerHTML +=
+
+`
+<div class="itemCarrinho">
+
+<div>
+
+${item.descricao}
+
+</div>
+
+<div>
+
+R$ ${item.valor.toFixed(2)}
+
+<br>
+
+<button
+class="removeBtn"
+onclick="removerItem(${index})">
+
+Remover
+
+</button>
+
+</div>
+
 </div>
 `;
 
 });
 
-document.getElementById("total").innerHTML=total.toFixed(2);
+document
+.getElementById("contador")
+.innerHTML = carrinho.length;
+
+document
+.getElementById("valorTotal")
+.innerHTML =
+total.toFixed(2);
+
+
+}
+  function finalizarPedido(){
+
+if(carrinho.length == 0){
+
+alert("Seu carrinho está vazio!");
+
+return;
 
 }
 
-function finalizar(){
+let mensagem =
+"Olá, gostaria de fazer um pedido:%0A%0A";
 
-let texto="Olá, gostaria de fazer um pedido:%0A%0A";
+carrinho.forEach((item,indice)=>{
 
-carrinho.forEach(item=>{
-texto+="• "+item.nome+" - R$ "+item.preco.toFixed(2)+"%0A";
+let texto = item.descricao
+.replace(/<br><small>/g,"%0A   - ")
+.replace(/<\/small>/g,"")
+.replace(/<br>/g,"%0A")
+.replace(/<[^>]*>/g,"");
+
+mensagem +=
+(indice+1) +
+"º Item:%0A" +
+texto +
+"%0AValor: R$ " +
+item.valor.toFixed(2) +
+"%0A%0A";
+
 });
 
-texto+="%0ATotal: R$ "+total.toFixed(2);
+mensagem +=
+"====================%0A";
+
+mensagem +=
+"TOTAL DO PEDIDO: R$ "
++ total.toFixed(2);
 
 window.open(
-"https://wa.me/5584994730073?text="+texto,
+
+"https://wa.me/5584994730073?text="
+
++ mensagem,
+
 "_blank"
+
 );
 
 }
 
 </script>
+
+<footer style="background:#000;padding:25px;text-align:center;margin-top:30px;">
+
+<h2 style="color:#ffcc00;">
+Marmitex Bom Barato e Gostoso
+</h2>
+
+<p>
+Monte sua marmita do seu jeito.
+</p>
+
+<p style="margin-top:10px;">
+📲 WhatsApp: (84) 99473-0073
+</p>
+
+</footer>
 
 </body>
 </html>
