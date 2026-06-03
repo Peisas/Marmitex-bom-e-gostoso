@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marmitex Bom Barato e Gostoso</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#111;
+color:#fff;
+}
+
+header{
+background:linear-gradient(90deg,#000,#b30000,#ffcc00);
+padding:30px 20px;
+text-align:center;
+}
+
+.logo{
+width:120px;
+height:120px;
+border-radius:50%;
+border:4px solid #fff;
+object-fit:cover;
+background:#fff;
+}
+
+h1{
+margin-top:15px;
+font-size:2rem;
+}
+
+.sub{
+margin-top:5px;
+opacity:.8;
+}
+
+.menu{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-top:25px;
+}
+
+.menu a{
+background:#fff;
+color:#111;
+padding:12px 20px;
+border-radius:30px;
+text-decoration:none;
+font-weight:700;
+transition:.3s;
+}
+
+.menu a:hover{
+transform:scale(1.05);
+}
+
+#carrinhoBtn{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25D366;
+padding:15px 20px;
+border-radius:50px;
+font-weight:bold;
+cursor:pointer;
+z-index:999;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:30px 15px;
+}
+
+.titulo{
+font-size:2rem;
+text-align:center;
+margin-bottom:25px;
+color:#ffcc00;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1d1d1d;
+border-radius:18px;
+padding:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.3);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.preco{
+font-size:1.5rem;
+color:#ffcc00;
+font-weight:700;
+margin:10px 0;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+background:#ffcc00;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+opacity:.9;
+}
+
+#painel{
+background:#1b1b1b;
+padding:20px;
+margin-top:40px;
+border-radius:20px;
+}
+
+#lista{
+margin-top:15px;
+}
+
+.item{
+display:flex;
+justify-content:space-between;
+margin:8px 0;
+}
+
+.total{
+font-size:1.4rem;
+font-weight:700;
+margin-top:15px;
+color:#ffcc00;
+}
+
+.finalizar{
+display:block;
+margin-top:20px;
+text-align:center;
+background:#25D366;
+padding:15px;
+border-radius:12px;
+text-decoration:none;
+color:#fff;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<img src="logo.png" class="logo">
+
+<h1>Marmitex Bom Barato e Gostoso</h1>
+
+<p class="sub">
+Monte seu pedido online
+</p>
+
+<div class="menu">
+
+<a href="#cardapio">
+🍽 Cardápio
+</a>
+
+<a href="https://instagram.com/" target="_blank">
+📸 Instagram
+</a>
+
+<a href="https://wa.me/5584994730073" target="_blank">
+📲 WhatsApp
+</a>
+
+</div>
+
+</header>
+
+<div id="carrinhoBtn">
+🛒 <span id="contador">0</span>
+</div>
+
+<section class="container" id="cardapio">
+
+<h2 class="titulo">
+Escolha sua Marmita
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Marmita 1 Proteína</h3>
+<div class="preco">R$ 10,00</div>
+<button onclick="addItem('Marmita 1 Proteína',10)">
+Adicionar ao Carrinho
+</button>
+</div>
+
+<div class="card">
+<h3>Marmita 2 Proteínas</h3>
+<div class="preco">R$ 15,00</div>
+<button onclick="addItem('Marmita 2 Proteínas',15)">
+Adicionar ao Carrinho
+</button>
+</div>
+
+<div class="card">
+<h3>Marmita 3 Proteínas</h3>
+<div class="preco">R$ 20,00</div>
+<button onclick="addItem('Marmita 3 Proteínas',20)">
+Adicionar ao Carrinho
+</button>
+</div>
+
+<div class="card">
+<h3>Batata Frita</h3>
+<div class="preco">R$ 5,00</div>
+<button onclick="addItem('Batata Frita',5)">
+Adicionar ao Carrinho
+</button>
+</div>
+
+<div class="card">
+<h3>Refrigerante Lata</h3>
+<div class="preco">R$ 6,00</div>
+<button onclick="addItem('Refrigerante Lata',6)">
+Adicionar ao Carrinho
+</button>
+</div>
+
+<div class="card">
+<h3>Refrigerante 1 Litro</h3>
+<div class="preco">R$ 9,00</div>
+<button onclick="addItem('Refrigerante 1 Litro',9)">
+Adicionar ao Carrinho
+</button>
+</div>
+
+<div class="card">
+<h3>Parmegiana 1 Pessoa</h3>
+<div class="preco">R$ 20,00</div>
+<button onclick="addItem('Parmegiana 1 Pessoa',20)">
+Adicionar ao Carrinho
+</button>
+</div>
+
+<div class="card">
+<h3>Parmegiana 2 Pessoas</h3>
+<div class="preco">R$ 30,00</div>
+<button onclick="addItem('Parmegiana 2 Pessoas',30)">
+Adicionar ao Carrinho
+</button>
+</div>
+
+</div>
+
+<div id="painel">
+
+<h2>🛒 Meu Carrinho</h2>
+
+<div id="lista"></div>
+
+<div class="total">
+Total: R$ <span id="total">0.00</span>
+</div>
+
+<a href="#" class="finalizar" onclick="finalizar()">
+Finalizar Pedido
+</a>
+
+</div>
+
+</section>
+
+<script>
+
+let carrinho=[];
+let total=0;
+
+function addItem(nome,preco){
+
+carrinho.push({nome,preco});
+
+total+=preco;
+
+document.getElementById("contador").innerHTML=carrinho.length;
+
+render();
+
+}
+
+function render(){
+
+let lista=document.getElementById("lista");
+
+lista.innerHTML="";
+
+carrinho.forEach(item=>{
+
+lista.innerHTML+=`
+<div class="item">
+<span>${item.nome}</span>
+<span>R$ ${item.preco.toFixed(2)}</span>
+</div>
+`;
+
+});
+
+document.getElementById("total").innerHTML=total.toFixed(2);
+
+}
+
+function finalizar(){
+
+let texto="Olá, gostaria de fazer um pedido:%0A%0A";
+
+carrinho.forEach(item=>{
+texto+="• "+item.nome+" - R$ "+item.preco.toFixed(2)+"%0A";
+});
+
+texto+="%0ATotal: R$ "+total.toFixed(2);
+
+window.open(
+"https://wa.me/5584994730073?text="+texto,
+"_blank"
+);
+
+}
+
+</script>
+
+</body>
+</html>
